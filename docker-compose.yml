@@ -1,0 +1,26 @@
+version: "3.3"
+services:
+  www.eana.ro-html:
+    image: 395500896865.dkr.ecr.eu-west-1.amazonaws.com/wordpress-snuffleupagus:5.7.2-php7.4-apache
+    container_name: www.eana.ro-html
+    restart: always
+    ports:
+      - 172.17.0.1:8040:80
+    volumes:
+      - ./html:/var/www/html
+    depends_on:
+      - www.eana.ro-mysql
+    networks:
+      - www.eana.ro-network
+  www.eana.ro-mysql:
+    image: mariadb:10.6.2
+    container_name: www.eana.ro-mysql
+    restart: always
+    volumes:
+      - ./mysql/db:/var/lib/mysql
+      - ./mysql/export:/data
+    networks:
+      - www.eana.ro-network
+networks:
+  www.eana.ro-network:
+      driver: bridge
