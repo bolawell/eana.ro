@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   www.eana.ro-html:
-    image: 395500896865.dkr.ecr.eu-west-1.amazonaws.com/wordpress-snuffleupagus:5.9.2-php7.4-apache
+    image: 395500896865.dkr.ecr.eu-west-1.amazonaws.com/wordpress-snuffleupagus:5.9.3-php7.4-apache
     container_name: www.eana.ro-html
     restart: always
     ports:
